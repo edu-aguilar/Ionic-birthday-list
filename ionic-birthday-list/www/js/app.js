@@ -1,7 +1,8 @@
 angular.module('controllers', []);
 angular.module('services', []);
+angular.module('components', []);
 
-angular.module('ionicBirthdayList', ['ionic', 'controllers', 'services'])
+angular.module('ionicBirthdayList', ['ionic', 'controllers', 'services', 'components'])
         .run(runApp)
         .config(ionicConfig);
 

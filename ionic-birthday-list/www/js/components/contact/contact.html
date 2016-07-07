@@ -1,0 +1,13 @@
+<ion-list can-swipe="$ctrl.swipable">
+    <ion-item ng-repeat="contact in $ctrl.contacts" class="item item-avatar">
+
+      <img ng-src="{{contact.img}}">
+      <h2>{{contact.name}}</h2>
+      <p>{{contact.date}}</p>
+
+      <ion-option-button ng-if="$ctrl.swipable" ng-repeat="optionButton in $ctrl.swipableOptions" class="{{optionButton.class}}" ng-click="optionButton.onClick(contact)">
+        {{optionButton.text}}
+      </ion-option-button>
+
+    </ion-item>
+</ion-list>
