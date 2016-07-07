@@ -1,0 +1,38 @@
+#contact {
+
+  @mixin vertical-align() {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &>.list {
+    padding: 0 1rem;
+  }
+
+  .main-container {
+
+    width: 100%;
+
+    .row {
+        .user-info {
+          @include vertical-align();
+        }
+
+        .user-image {
+          @include vertical-align();
+          img {
+            width: 100%;
+          }
+        }
+
+    }
+  }
+
+  .action-container {
+    width: 100%;
+    text-align: right;
+  }
+
+
+}

@@ -6,7 +6,7 @@
         bindings: {
             contacts: '<',
             swipable: '<',
-            swipableOptions: '<'
+            actionButtons: '<'
         },
         controller: contactController
     };

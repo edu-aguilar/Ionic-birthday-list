@@ -9814,3 +9814,23 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+#contact > .list {
+  padding: 0 1rem; }
+
+#contact .main-container {
+  width: 100%; }
+  #contact .main-container .row .user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+  #contact .main-container .row .user-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    #contact .main-container .row .user-image img {
+      width: 100%; }
+
+#contact .action-container {
+  width: 100%;
+  text-align: right; }

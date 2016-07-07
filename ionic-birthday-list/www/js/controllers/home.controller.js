@@ -13,14 +13,14 @@
 
         function activate() {
             //scope methods
-            vm.swipableOptions = [{
+            vm.buttons = [{
                 text: 'Share',
-                class: 'button-positive',
+                class: 'button button-stable',
                 onClick: onShareClick
             },
             {
                 text: 'delete',
-                class: 'button-assertive',
+                class: 'button button-assertive',
                 onClick: onDeleteClick
             }];
 
@@ -29,6 +29,21 @@
             vm.items = [{
                 img: img,
                 name: 'Silvia Marín Sánchez',
+                date: 'dd-mm-yyyy'
+            },
+            {
+                img: img,
+                name: 'Eduardo Aguilar Tirado',
+                date: 'dd-mm-yyyy'
+            },
+            {
+                img: img,
+                name: 'Manu Marín Sánchez',
+                date: 'dd-mm-yyyy'
+            },
+            {
+                img: img,
+                name: 'Virginia Aguilar Tirado',
                 date: 'dd-mm-yyyy'
             },
             {
