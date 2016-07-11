@@ -14,13 +14,18 @@
         function activate() {
             //scope methods
             vm.buttons = [{
-                text: 'Share',
+                text: 'edit',
                 class: 'button button-stable',
                 onClick: onShareClick
             },
             {
                 text: 'delete',
                 class: 'button button-assertive',
+                onClick: onDeleteClick
+            },
+            {
+                text: 'Share',
+                class: 'button button-positive',
                 onClick: onDeleteClick
             }];
 

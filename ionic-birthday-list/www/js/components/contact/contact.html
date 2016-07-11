@@ -16,23 +16,27 @@
 
     <div class="main-container" ng-repeat="contact in $ctrl.contacts" class="item item-avatar">
 
-      <div class="data-container row">
+      <div class="contact-container">
 
-          <div class="col col-75 user-info">
-            <h4>{{contact.name}}</h4>
-            <p>{{contact.date}}</p>
-          </div>
+        <div class="data-container row">
 
-          <div class="col col-25 user-image">
-            <img ng-src="{{contact.img}}">
-          </div>
+            <div class="col col-75 user-info">
+              <h4>{{contact.name}}</h4>
+              <p>{{contact.date}}</p>
+            </div>
 
-      </div>
+            <div class="col col-25 user-image">
+              <img ng-src="{{contact.img}}">
+            </div>
 
-      <div class="action-container">
-        <button ng-repeat="actionButton in $ctrl.actionButtons" class="{{actionButton.class}}" ng-click="actionButton.onClick(contact)">
-          {{actionButton.text}}
-        </button>
+        </div>
+
+        <div class="action-container">
+          <button ng-repeat="actionButton in $ctrl.actionButtons" class="{{actionButton.class}}" ng-click="actionButton.onClick(contact)">
+            {{actionButton.text}}
+          </button>
+        </div>
+
       </div>
 
     </div>

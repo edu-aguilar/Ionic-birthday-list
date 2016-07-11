@@ -1,5 +1,13 @@
+@font-face {
+    font-family: "Roboto";
+    src: url(Roboto-Light.ttf) format("truetype");
+}
+
 #contact {
 
+  & * {
+    font-family: "Roboto" !important;
+  }
   @mixin vertical-align() {
     display: flex;
     flex-direction: column;
@@ -12,19 +20,30 @@
 
   .main-container {
 
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-radius: 2px;
     width: 100%;
+    &:not(:first-child) {
+        margin-top: 10px;
+    }
 
-    .row {
-        .user-info {
-          @include vertical-align();
-        }
+    .contact-container {
+      border: solid 1px #e6e6e6;
+      padding: 0.5rem;
 
-        .user-image {
-          @include vertical-align();
-          img {
-            width: 100%;
+      .data-container.row {
+          padding: 0;
+          .user-info {
+            @include vertical-align();
           }
-        }
+
+          .user-image {
+            @include vertical-align();
+            img {
+              width: 100%;
+            }
+          }
+      }
 
     }
   }
@@ -32,6 +51,10 @@
   .action-container {
     width: 100%;
     text-align: right;
+
+    button:not(:first-child) {
+        margin-left: 10px;
+    }
   }
 
 

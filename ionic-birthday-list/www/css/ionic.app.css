@@ -9815,22 +9815,40 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+@font-face {
+  font-family: "Roboto";
+  src: url(Roboto-Light.ttf) format("truetype"); }
+
+#contact * {
+  font-family: "Roboto" !important; }
+
 #contact > .list {
   padding: 0 1rem; }
 
 #contact .main-container {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 2px;
   width: 100%; }
-  #contact .main-container .row .user-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; }
-  #contact .main-container .row .user-image {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; }
-    #contact .main-container .row .user-image img {
-      width: 100%; }
+  #contact .main-container:not(:first-child) {
+    margin-top: 10px; }
+  #contact .main-container .contact-container {
+    border: solid 1px #e6e6e6;
+    padding: 0.5rem; }
+    #contact .main-container .contact-container .data-container.row {
+      padding: 0; }
+      #contact .main-container .contact-container .data-container.row .user-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+      #contact .main-container .contact-container .data-container.row .user-image {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+        #contact .main-container .contact-container .data-container.row .user-image img {
+          width: 100%; }
 
 #contact .action-container {
   width: 100%;
   text-align: right; }
+  #contact .action-container button:not(:first-child) {
+    margin-left: 10px; }
