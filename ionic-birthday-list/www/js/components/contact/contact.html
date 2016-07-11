@@ -32,7 +32,7 @@
         </div>
 
         <div class="action-container">
-          <button ng-repeat="actionButton in $ctrl.actionButtons" class="{{actionButton.class}}" ng-click="actionButton.onClick(contact)">
+          <button ng-repeat="actionButton in $ctrl.actionButtons" class="button-ripple {{actionButton.class}}" ng-click="actionButton.onClick(contact, $parent.$index, $index)">
             {{actionButton.text}}
           </button>
         </div>
