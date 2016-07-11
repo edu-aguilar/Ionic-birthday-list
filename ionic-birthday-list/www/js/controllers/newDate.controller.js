@@ -12,11 +12,19 @@
         activate();
 
         function activate() {
+            vm.newDate = {};
             vm.closeDateModal = closeDateModal;
+            vm.addDate = addDate;
         }
 
         function closeDateModal() {
             var modal = newDateService.getModal().hide();
+        }
+
+        function addDate() {
+          console.log(vm.newDate);
+          closeDateModal();
+          vm.newDate = {};
         }
     }
 })();

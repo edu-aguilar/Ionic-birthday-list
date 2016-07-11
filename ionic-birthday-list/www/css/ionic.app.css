@@ -9815,8 +9815,17 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+#newDate-modal .error {
+  color: red; }
+
 #newDate-modal .bar.bar-header button {
   padding: 0; }
+
+#newDate-modal ion-content > .scroll {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
 
 #newDate-modal .bar.bar-footer {
   padding: 0; }
