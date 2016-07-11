@@ -9815,6 +9815,15 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+#newDate-modal .bar.bar-header button {
+  padding: 0; }
+
+#newDate-modal .bar.bar-footer {
+  padding: 0; }
+  #newDate-modal .bar.bar-footer button {
+    width: 100%;
+    border-radius: 0; }
+
 @font-face {
   font-family: "Roboto";
   src: url(Roboto-Light.ttf) format("truetype"); }

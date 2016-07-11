@@ -1,6 +1,7 @@
 <ion-modal-view id="newDate-modal" ng-controller="NewDateController as vm">
 
   <div class="bar bar-header bar-assertive">
+    <button class="button button-icon icon ion-close" ng-click="vm.closeDateModal()"></button>
     <h1 class="title">Nueva Fecha</h1>
   </div>
 
@@ -9,5 +10,11 @@
         datos
       </p>
   </ion-content>
+
+  <div class="bar bar-footer">
+    <button class="button button-positive button-assertive">
+      Añadir fecha
+    </button>
+  </div>
 
 </ion-modal-view>

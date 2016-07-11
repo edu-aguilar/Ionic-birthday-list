@@ -21,7 +21,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
-
+//views
+@import "modals/newDate";
 
 //contact component
 @import "www/js/components/contact/contact";
