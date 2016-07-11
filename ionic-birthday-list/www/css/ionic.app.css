@@ -9852,3 +9852,15 @@ a.button {
   text-align: right; }
   #contact .action-container button:not(:first-child) {
     margin-left: 10px; }
+
+#contact .fadeOutRight {
+  transition: 0.5s linear all;
+  -webkit-transition: 0.5s linear all; }
+
+#contact .fadeOutRight.ng-leave {
+  opacity: 1; }
+
+#contact .fadeOutRight.ng-leave.ng-leave-active {
+  opacity: 0;
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0); }

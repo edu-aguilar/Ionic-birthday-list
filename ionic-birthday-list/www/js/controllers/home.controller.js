@@ -69,6 +69,7 @@
 
         function onDeleteClick(item, parentIndex, index) {
             console.log('delete clicked: ' + JSON.stringify(item) + " - parent index: " + parentIndex + " - button index: " + index);
+            vm.items.splice(parentIndex, 1);
         }
     }
 })();
