@@ -9815,6 +9815,12 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.padding-port-s {
+  padding: 0.5rem 0; }
+
+.padding-land-s {
+  padding: 0 0.5rem; }
+
 #newDate-modal .error {
   color: red; }
 
