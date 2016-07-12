@@ -9833,6 +9833,21 @@ a.button {
   flex-direction: column;
   justify-content: center; }
 
+#newDate-modal .additional-data .thumbnail-container {
+  padding: 0.5rem 1rem; }
+  #newDate-modal .additional-data .thumbnail-container .col.col-80 {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; }
+  #newDate-modal .additional-data .thumbnail-container .col.col-20 {
+    text-align: -webkit-right;
+    padding: 0; }
+    #newDate-modal .additional-data .thumbnail-container .col.col-20 .image-container {
+      width: 30px;
+      height: 30px;
+      border: solid 1px red; }
+
 #newDate-modal .bar.bar-footer {
   padding: 0; }
   #newDate-modal .bar.bar-footer button {
