@@ -9833,6 +9833,19 @@ a.button {
     width: 100%;
     border-radius: 0; }
 
+#newDate-modal .fade {
+  line-height: 20px;
+  opacity: 1;
+  padding: 0 10px; }
+
+#newDate-modal .fade.ng-hide-add, #newDate-modal .fade.ng-hide-remove {
+  transition: all linear 0.5s; }
+
+#newDate-modal .fade.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  padding: 0 10px; }
+
 @font-face {
   font-family: "Roboto";
   src: url(Roboto-Light.ttf) format("truetype"); }

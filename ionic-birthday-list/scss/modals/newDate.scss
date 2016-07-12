@@ -25,4 +25,22 @@
           border-radius: 0;
         }
     }
+
+    //list exit animation
+    .fade {
+      line-height: 20px;
+      opacity: 1;
+      padding: 0 10px;
+    }
+
+    .fade.ng-hide-add, .fade.ng-hide-remove {
+      transition: all linear 0.5s;
+    }
+
+    .fade.ng-hide {
+      line-height: 0;
+      opacity: 0;
+      padding: 0 10px;
+    }
+
 }

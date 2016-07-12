@@ -17,6 +17,7 @@
             vm.addDate = addDate;
         }
 
+        //scope methods
         function closeDateModal() {
             var modal = newDateService.getModal().hide();
         }
@@ -24,7 +25,14 @@
         function addDate() {
           console.log(vm.newDate);
           closeDateModal();
-          vm.newDate = {};
+          initModelVars();
+        }
+
+        //private mthods
+        function initModelVars() {
+            vm.newDate = {};
+            vm.wantAlertNotif = false;
+            vm.timeAlertNotif = null;
         }
     }
 })();

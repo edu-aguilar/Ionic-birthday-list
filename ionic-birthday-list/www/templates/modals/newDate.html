@@ -9,7 +9,6 @@
 
     <form name="vm.newDateForm" novalidate class="">
 
-      <!--own-->
       <div class="">
         <label class="item item-input item-floating-label">
           <span class="input-label">Name</span>
@@ -26,10 +25,26 @@
 
     </form>
 
+    <li class="item item-toggle">
+       Alert notification
+       <label class="toggle toggle-assertive">
+         <input ng-model="vm.wantAlertNotif" type="checkbox">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </li>
+    <div ng-show="vm.wantAlertNotif" class="fade">
+      <ion-list>
+        <ion-radio ng-model="vm.timeAlertNotif" ng-value="1">A day before</ion-radio>
+        <ion-radio ng-model="vm.timeAlertNotif" ng-value="2">3 days before</ion-radio>
+        <ion-radio ng-model="vm.timeAlertNotif" ng-value="3">A week before</ion-radio>
+      </ion-list>
+    </div>
   </ion-content>
 
   <div class="bar bar-footer">
-    <button ng-disabled="!vm.newDateForm.$valid" ng-click="vm.addDate()" class="button button-positive button-assertive">
+    <button ng-disabled="!vm.newDateForm.$valid || vm.wantAlertNotif && !vm.timeAlertNotif" ng-click="vm.addDate()" class="button button-positive button-assertive">
       Add date
     </button>
   </div>
