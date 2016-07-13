@@ -9828,10 +9828,7 @@ a.button {
   padding: 0; }
 
 #newDate-modal ion-content > .scroll {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; }
+  height: 100%; }
 
 #newDate-modal .additional-data .thumbnail-container {
   padding: 0.5rem 1rem; }
@@ -9845,8 +9842,10 @@ a.button {
     padding: 0; }
     #newDate-modal .additional-data .thumbnail-container .col.col-20 .image-container {
       width: 30px;
-      height: 30px;
-      border: solid 1px red; }
+      height: 30px; }
+      #newDate-modal .additional-data .thumbnail-container .col.col-20 .image-container img {
+        width: 100%;
+        height: 100%; }
 
 #newDate-modal .bar.bar-footer {
   padding: 0; }
@@ -9916,3 +9915,16 @@ a.button {
   opacity: 0;
   -webkit-transform: translate3d(100%, 0, 0);
   transform: translate3d(100%, 0, 0); }
+
+.android-scroll-bar ::-webkit-scrollbar {
+  width: 5px; }
+
+.android-scroll-bar ::-webkit-scrollbar-track {
+  border-radius: 10px; }
+
+.android-scroll-bar ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: darkgray; }
+
+.android-scroll-bar ::-webkit-scrollbar-thumb:window-inactive {
+  background: gray; }

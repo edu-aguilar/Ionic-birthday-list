@@ -26,8 +26,8 @@ function runApp($ionicPlatform) {
     }
 }
 
-function ionicConfig($stateProvider, $urlRouterProvider) {
-
+function ionicConfig($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+    $ionicConfigProvider.scrolling.jsScrolling(false);
     $stateProvider
         .state('app', {
             url: "/app",
