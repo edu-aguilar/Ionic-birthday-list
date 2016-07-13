@@ -23,8 +23,8 @@
             vm.detailDate.name = $stateParams.contact.name;
             vm.detailDate.subject = $stateParams.contact.subject;
             vm.detailDate.date = new Date;
-            // vm.wantAlertNotif
-            // vm.timeAlertNotif
+            vm.wantAlertNotif = $stateParams.contact.wantAlertNotif;
+            vm.timeAlertNotif = $stateParams.contact.timeAlertNotif;
         }
     }
 })();
