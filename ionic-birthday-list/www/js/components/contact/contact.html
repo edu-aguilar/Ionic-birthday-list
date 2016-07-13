@@ -21,8 +21,10 @@
         <div class="data-container row">
 
             <div class="col col-75 user-info">
-              <h4>{{contact.name}}</h4>
-              <p>{{contact.date}}</p>
+              <div ng-repeat="(key, value) in contact.data">
+                <h4 ng-if="$index < 1">{{value}} - {{$index}}</h4>
+                <p ng-if="$index > 0">{{value}} - {{$index}}</p>
+              </div>
             </div>
 
             <div class="col col-25 user-image">

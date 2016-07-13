@@ -28,38 +28,38 @@
 
             vm.items = [{
                 img: img,
-                name: 'Silvia Marín Sánchez',
-                date: 'dd-mm-yyyy'
+                data: {
+                  name: 'Silvia Marín Sánchez',
+                  date: 'dd-mm-yyyy',
+                }
             },
             {
                 img: img,
-                name: 'Eduardo Aguilar Tirado',
-                date: 'dd-mm-yyyy'
+                data: {
+                  name: 'Manu Marín Sánchez',
+                  date: 'dd-mm-yyyy',
+                }
             },
             {
                 img: img,
-                name: 'Manu Marín Sánchez',
-                date: 'dd-mm-yyyy'
+                data: {
+                  name: 'Virginia Aguilar Tirado',
+                  date: 'dd-mm-yyyy',
+                }
             },
             {
                 img: img,
-                name: 'Virginia Aguilar Tirado',
-                date: 'dd-mm-yyyy'
+                data: {
+                  name: 'Eduardo Aguilar Tirado',
+                  date: 'dd-mm-yyyy',
+                }
             },
             {
                 img: img,
-                name: 'Eduardo Aguilar Tirado',
-                date: 'dd-mm-yyyy'
-            },
-            {
-                img: img,
-                name: 'Manu Marín Sánchez',
-                date: 'dd-mm-yyyy'
-            },
-            {
-                img: img,
-                name: 'Virginia Aguilar Tirado',
-                date: 'dd-mm-yyyy'
+                data: {
+                  name: 'XXXX XXXX XXX',
+                  date: 'dd-mm-yyyy',
+                }
             }];
         }
 
