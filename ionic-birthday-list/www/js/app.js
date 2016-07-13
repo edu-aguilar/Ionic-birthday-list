@@ -43,6 +43,18 @@ function ionicConfig($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
                     controller: 'HomeController as vm'
                 }
             }
+        })
+        .state('app.dateDetail', {
+            url: "/dateDetail",
+            params: {
+              contact: null
+            },
+            views: {
+                'viewContent': {
+                    templateUrl: "templates/detailDate.html",
+                    controller: 'DetailDateController as vm'
+                }
+            }
         });
     $urlRouterProvider.otherwise('/app/home');
 }

@@ -1,6 +1,10 @@
 
 <ion-view view-title="Home" id="home">
 
+    <ion-nav-buttons side="primary">
+      <button class="button button-icon icon button-clear ion-plus-round" ng-click="vm.showNewDateModal()"></button>
+    </ion-nav-buttons>
+
     <ion-content class="padding-port-s">
 
       <contact-list

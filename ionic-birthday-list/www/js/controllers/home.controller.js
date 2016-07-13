@@ -6,13 +6,14 @@
         .controller('HomeController', HomeController);
 
     /* @ngInject */
-    function HomeController() {
+    function HomeController($state, newDateService) {
         var vm = this;
 
         activate();
 
         function activate() {
             //scope methods
+            vm.showNewDateModal = showNewDateModal;
             vm.buttons = [{
                 text: 'edit',
                 class: 'button button-stable',
@@ -63,8 +64,15 @@
             }];
         }
 
+        //scope methods
+        function showNewDateModal() {
+            newDateService.createNewDateModal();
+        }
+
+        //private methods
         function onShareClick(item, parentIndex, index) {
             console.log('Share clicked: ' + JSON.stringify(item) + " - parent index: " + parentIndex + " - button index: " + index);
+            $state.go('app.dateDetail', {contact: item});
         }
 
         function onDeleteClick(item, parentIndex, index) {
