@@ -29,38 +29,10 @@
 
             vm.items = [{
                 img: img,
-                data: {
-                  name: 'Silvia Marín Sánchez',
-                  date: 'dd-mm-yyyy',
-                }
-            },
-            {
-                img: img,
-                data: {
-                  name: 'Manu Marín Sánchez',
-                  date: 'dd-mm-yyyy',
-                }
-            },
-            {
-                img: img,
-                data: {
-                  name: 'Virginia Aguilar Tirado',
-                  date: 'dd-mm-yyyy',
-                }
-            },
-            {
-                img: img,
-                data: {
-                  name: 'Eduardo Aguilar Tirado',
-                  date: 'dd-mm-yyyy',
-                }
-            },
-            {
-                img: img,
-                data: {
-                  name: 'XXXX XXXX XXX',
-                  date: 'dd-mm-yyyy',
-                }
+                name: 'Silvia Marín Sánchez',
+                date: 'dd-mm-yyyy',
+                wantAlertNotif: true,
+                timeAlertNotif: 1
             }];
         }
 

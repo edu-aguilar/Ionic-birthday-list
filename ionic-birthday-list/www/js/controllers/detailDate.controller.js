@@ -13,8 +13,18 @@
 
         function activate() {
             //scope methods
-            console.log('estamos!' + $stateParams.contact);
+            var vm = this;
+            initModel();
         }
 
+        function initModel() {
+            vm.relatedImage = $stateParams.contact.img;
+            vm.detailDate = {};
+            vm.detailDate.name = $stateParams.contact.name;
+            vm.detailDate.subject = $stateParams.contact.subject;
+            vm.detailDate.date = new Date;
+            // vm.wantAlertNotif
+            // vm.timeAlertNotif
+        }
     }
 })();

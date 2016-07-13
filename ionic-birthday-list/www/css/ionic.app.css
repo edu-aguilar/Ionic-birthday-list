@@ -9821,63 +9821,63 @@ a.button {
 .padding-land-s {
   padding: 0 0.5rem; }
 
-#newDate-modal .error {
+#newDate-modal .error, #detailDate .error {
   color: red; }
 
-#newDate-modal .bar.bar-header button {
+#newDate-modal .bar.bar-header button, #detailDate .bar.bar-header button {
   padding: 0; }
 
-#newDate-modal ion-content > .scroll {
+#newDate-modal ion-content > .scroll, #detailDate ion-content > .scroll {
   height: 100%; }
 
-#newDate-modal .main-data .custom-item-input .col {
+#newDate-modal .main-data .custom-item-input .col, #detailDate .main-data .custom-item-input .col {
   display: flex;
   justify-content: center;
   flex-direction: column; }
-  #newDate-modal .main-data .custom-item-input .col .custom-input-label {
+  #newDate-modal .main-data .custom-item-input .col .custom-input-label, #detailDate .main-data .custom-item-input .col .custom-input-label {
     padding-left: 0.5rem; }
-  #newDate-modal .main-data .custom-item-input .col input {
+  #newDate-modal .main-data .custom-item-input .col input, #detailDate .main-data .custom-item-input .col input {
     padding: 0;
     background-color: white;
     width: 100%;
     text-align: -webkit-right; }
 
-#newDate-modal .main-data .error-date {
+#newDate-modal .main-data .error-date, #detailDate .main-data .error-date {
   color: red;
   padding: 0 1rem; }
 
-#newDate-modal .additional-data .thumbnail-container {
+#newDate-modal .additional-data .thumbnail-container, #detailDate .additional-data .thumbnail-container {
   padding: 0.5rem 1rem; }
-  #newDate-modal .additional-data .thumbnail-container .col.col-80 {
+  #newDate-modal .additional-data .thumbnail-container .col.col-80, #detailDate .additional-data .thumbnail-container .col.col-80 {
     padding: 0;
     display: flex;
     justify-content: center;
     flex-direction: column; }
-  #newDate-modal .additional-data .thumbnail-container .col.col-20 {
+  #newDate-modal .additional-data .thumbnail-container .col.col-20, #detailDate .additional-data .thumbnail-container .col.col-20 {
     text-align: -webkit-right;
     padding: 0; }
-    #newDate-modal .additional-data .thumbnail-container .col.col-20 .image-container {
+    #newDate-modal .additional-data .thumbnail-container .col.col-20 .image-container, #detailDate .additional-data .thumbnail-container .col.col-20 .image-container {
       width: 30px;
       height: 30px; }
-      #newDate-modal .additional-data .thumbnail-container .col.col-20 .image-container img {
+      #newDate-modal .additional-data .thumbnail-container .col.col-20 .image-container img, #detailDate .additional-data .thumbnail-container .col.col-20 .image-container img {
         width: 100%;
         height: 100%; }
 
-#newDate-modal .bar.bar-footer {
+#newDate-modal .bar.bar-footer, #detailDate .bar.bar-footer {
   padding: 0; }
-  #newDate-modal .bar.bar-footer button {
+  #newDate-modal .bar.bar-footer button, #detailDate .bar.bar-footer button {
     width: 100%;
     border-radius: 0; }
 
-#newDate-modal .fade {
+#newDate-modal .fade, #detailDate .fade {
   line-height: 20px;
   opacity: 1;
   padding: 0 10px; }
 
-#newDate-modal .fade.ng-hide-add, #newDate-modal .fade.ng-hide-remove {
+#newDate-modal .fade.ng-hide-add, #newDate-modal .fade.ng-hide-remove, #detailDate .fade.ng-hide-add, #detailDate .fade.ng-hide-remove {
   transition: all linear 0.5s; }
 
-#newDate-modal .fade.ng-hide {
+#newDate-modal .fade.ng-hide, #detailDate .fade.ng-hide {
   line-height: 0;
   opacity: 0;
   padding: 0 10px; }

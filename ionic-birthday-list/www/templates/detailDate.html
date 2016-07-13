@@ -1,14 +1,64 @@
-<ion-view view-title="aquí nombre" id="detail-date">
+<ion-view view-title="aquí nombre" id="detailDate">
 
     <ion-content class="padding-port-s">
 
 
-      <p>
-        aro
-      </p>
-      <p>
-        mamon
-      </p>
+      <form name="vm.detailDateForm" novalidate class="">
+
+        <div class="main-data">
+          <label class="item item-input item-floating-label">
+            <span class="input-label">Name</span>
+            <input type="text" ng-model="vm.detailDate.name" name="name" placeholder="Name" required>
+            <div class="error" ng-show="vm.detailDateForm.name.$error.required && vm.detailDateForm.name.$touched">Name is required!</div>
+          </label>
+          <label class="item item-input item-floating-label">
+            <span class="input-label">Subject</span>
+            <input type="text" ng-model="vm.detailDate.subject" name="subject" placeholder="Subject">
+          </label>
+          <div class="custom-item-input row">
+            <div class="col col-20">
+                <span class="custom-input-label">Date</span>
+            </div>
+            <div class="col col-80">
+                <input type="date" ng-model="vm.detailDate.date" name="date" required>
+            </div>
+          </div>
+          <div class="error-date" ng-show="vm.detailDateForm.date.$error.required && vm.detailDateForm.date.$touched">Date is required!</div>
+        </div>
+
+      </form>
+      <ul class="list additional-data">
+        <li class="thumbnail-container item row">
+          <div class=" col col-80">
+            <span class="text">Related image</span>
+          </div>
+          <div class="col col-20">
+            <div ng-show="vm.relatedImage" ng-click="vm.captureImage()" class="image-container">
+              <img src="{{vm.relatedImage}}" alt="" />
+            </div>
+            <div ng-show="!vm.relatedImage" class="capture-image-container">
+                <button ng-click="vm.captureImage()" class="button icon button-assertive ion-camera"></button>
+            </div>
+          </div>
+        </li>
+        <li class="item item-toggle">
+           Alert notification
+           <label class="toggle toggle-assertive">
+             <input ng-model="vm.wantAlertNotif" type="checkbox">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+      </ul>
+
+      <div ng-show="vm.wantAlertNotif" class="fade">
+        <ion-list>
+          <ion-radio ng-model="vm.timeAlertNotif" ng-value="1">A day before</ion-radio>
+          <ion-radio ng-model="vm.timeAlertNotif" ng-value="2">3 days before</ion-radio>
+          <ion-radio ng-model="vm.timeAlertNotif" ng-value="3">A week before</ion-radio>
+        </ion-list>
+      </div>
 
     </ion-content>
 
