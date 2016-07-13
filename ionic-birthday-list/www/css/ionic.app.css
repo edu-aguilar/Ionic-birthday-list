@@ -9842,6 +9842,10 @@ a.button {
     width: 100%;
     text-align: -webkit-right; }
 
+#newDate-modal .main-data .error-date {
+  color: red;
+  padding: 0 1rem; }
+
 #newDate-modal .additional-data .thumbnail-container {
   padding: 0.5rem 1rem; }
   #newDate-modal .additional-data .thumbnail-container .col.col-80 {

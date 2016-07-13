@@ -19,19 +19,15 @@
           <span class="input-label">Subject</span>
           <input type="text" ng-model="vm.newDate.subject" name="subject" placeholder="Subject">
         </label>
-        <label class="item item-input item-floating-label">
-          <span class="input-label">Date</span>
-          <input type="date" ng-model="vm.newDate.date" name="date" placeholder="Date" required>
-          <div class="error" ng-show="vm.newDateForm.date.$error.required && vm.newDateForm.date.$touched">Date is required!</div>
-        </label>
         <div class="custom-item-input row">
           <div class="col col-20">
               <span class="custom-input-label">Date</span>
           </div>
           <div class="col col-80">
-              <input type="date">
+              <input type="date" ng-model="vm.newDate.date" name="date" required>
           </div>
         </div>
+        <div class="error-date" ng-show="vm.newDateForm.date.$error.required && vm.newDateForm.date.$touched">Date is required!</div>
       </div>
 
     </form>
