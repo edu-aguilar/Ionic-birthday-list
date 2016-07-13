@@ -30,7 +30,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 //contact component
 @import "www/js/components/contact/contact";
 
-//ionic fix for android scrollBar
+//ionic fix for android scrollBar --> disabled: add class 'android-scroll-bar' in body to enable
 .android-scroll-bar ::-webkit-scrollbar {width: 5px;}
 .android-scroll-bar ::-webkit-scrollbar-track { border-radius: 10px;}
 .android-scroll-bar ::-webkit-scrollbar-thumb { border-radius: 10px; background: rgb(169,169,169); }

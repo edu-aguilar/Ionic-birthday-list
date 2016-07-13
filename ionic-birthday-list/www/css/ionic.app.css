@@ -9830,6 +9830,18 @@ a.button {
 #newDate-modal ion-content > .scroll {
   height: 100%; }
 
+#newDate-modal .main-data .custom-item-input .col {
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+  #newDate-modal .main-data .custom-item-input .col .custom-input-label {
+    padding-left: 0.5rem; }
+  #newDate-modal .main-data .custom-item-input .col input {
+    padding: 0;
+    background-color: white;
+    width: 100%;
+    text-align: -webkit-right; }
+
 #newDate-modal .additional-data .thumbnail-container {
   padding: 0.5rem 1rem; }
   #newDate-modal .additional-data .thumbnail-container .col.col-80 {
