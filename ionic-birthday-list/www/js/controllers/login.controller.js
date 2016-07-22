@@ -6,7 +6,7 @@
         .controller('LoginController', LoginController);
 
     /* @ngInject */
-    function LoginController() {
+    function LoginController($state) {
         var vm = this;
 
         activate();
@@ -17,7 +17,7 @@
 
         //scope methods
         function doLogin() {
-
+            $state.go('app.home');
         }
 
         //private methods
