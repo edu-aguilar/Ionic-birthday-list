@@ -6,13 +6,14 @@
         .controller('HomeController', HomeController);
 
     /* @ngInject */
-    function HomeController($state, newDateService) {
+    function HomeController($state, newDateService, $ionicSideMenuDelegate, $scope) {
         var vm = this;
 
         activate();
+        $scope.$on('$ionicView.beforeEnter', beforeEnter);
 
         function activate() {
-            //scope methods
+
             vm.showNewDateModal = showNewDateModal;
             vm.buttons = [{
                 text: 'edit',
@@ -50,6 +51,10 @@
         function onDeleteClick(item, parentIndex, index) {
             console.log('delete clicked: ' + JSON.stringify(item) + " - parent index: " + parentIndex + " - button index: " + index);
             vm.items.splice(parentIndex, 1);
+        }
+
+        function beforeEnter() {
+            $ionicSideMenuDelegate.canDragContent(true);
         }
     }
 })();

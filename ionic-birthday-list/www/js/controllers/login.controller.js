@@ -6,13 +6,15 @@
         .controller('LoginController', LoginController);
 
     /* @ngInject */
-    function LoginController($state) {
+    function LoginController($state, $ionicSideMenuDelegate, $scope) {
         var vm = this;
 
         activate();
+        $scope.$on('$ionicView.beforeEnter', beforeEnter);
 
         function activate() {
             vm.doLogin = doLogin;
+            $ionicSideMenuDelegate.canDragContent(false);
         }
 
         //scope methods
@@ -21,5 +23,8 @@
         }
 
         //private methods
+        function beforeEnter() {
+            $ionicSideMenuDelegate.canDragContent(false);
+        }
     }
 })();
