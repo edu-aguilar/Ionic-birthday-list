@@ -1,0 +1,25 @@
+#login {
+
+    .login-container {
+
+      &>.scroll {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .button-social {
+        display: block;
+        width: 50%;
+        margin: 0 auto;
+
+        &:not(:first-child) {
+          margin-top: 30px;
+        }
+
+        &.facebook {background-color: $facebook;}
+        &.google {background-color: $google;}
+      }
+    }
+
+}

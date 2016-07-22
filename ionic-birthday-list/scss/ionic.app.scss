@@ -15,6 +15,9 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+$facebook: #3b5998;
+$google: #dd4b39;
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
@@ -26,6 +29,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 //views
 @import "modals/newDate";
+@import "views/login";
 
 //contact component
 @import "www/js/components/contact/contact";

@@ -35,6 +35,15 @@ function ionicConfig($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             templateUrl: "templates/menu.html",
             controller: 'MenuController as vm'
         })
+        .state('app.login', {
+            url: "/login",
+            views: {
+                'viewContent': {
+                    templateUrl: "templates/login.html",
+                    controller: 'LoginController as vm'
+                }
+            }
+        })
         .state('app.home', {
             url: "/home",
             views: {
@@ -56,5 +65,5 @@ function ionicConfig($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
                 }
             }
         });
-    $urlRouterProvider.otherwise('/app/home');
+    $urlRouterProvider.otherwise('/app/login');
 }
