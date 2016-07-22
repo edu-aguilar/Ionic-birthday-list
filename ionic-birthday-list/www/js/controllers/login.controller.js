@@ -6,7 +6,7 @@
         .controller('LoginController', LoginController);
 
     /* @ngInject */
-    function LoginController($state, $ionicSideMenuDelegate, $scope) {
+    function LoginController($state, $ionicSideMenuDelegate, $scope, rrssService) {
         var vm = this;
 
         activate();
@@ -19,7 +19,7 @@
 
         //scope methods
         function doLogin() {
-            $state.go('app.home');
+
         }
 
         //private methods

@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "angular-animate": "~1.5.7",
-    "ngCordova": "~0.1.27-alpha"
+    "ngCordova": "~0.1.27-alpha",
+    "ng-cordova-oauth": "~0.2.10"
   }
 }
