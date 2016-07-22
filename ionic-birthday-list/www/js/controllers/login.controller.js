@@ -12,7 +12,14 @@
         activate();
 
         function activate() {
+            vm.doLogin = doLogin;
+        }
+
+        //scope methods
+        function doLogin() {
 
         }
+
+        //private methods
     }
 })();
