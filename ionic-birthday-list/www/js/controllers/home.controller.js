@@ -6,9 +6,10 @@
         .controller('HomeController', HomeController);
 
     /* @ngInject */
-    function HomeController($state, newDateService, $ionicSideMenuDelegate, $scope) {
+    function HomeController($state, newDateService, $ionicSideMenuDelegate, $scope, userService) {
         var vm = this;
 
+        console.log(userService.get());
         activate();
         $scope.$on('$ionicView.beforeEnter', beforeEnter);
 

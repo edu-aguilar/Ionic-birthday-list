@@ -4,7 +4,7 @@
     angular.module('services')
         .factory('rrssService', rrssService);
 
-    function rrssService($cordovaOauth, $q, $http, $ionicLoading){
+    function rrssService($cordovaOauth, $q, $http, $ionicLoading, userService){
 
         var facebookAppId = '1735260246693734';
         var googleClientId = '153461763037-qpcqe450jhnlmga2sknnig3df9mb34od.apps.googleusercontent.com';
@@ -113,7 +113,7 @@
             } else {
                 d.reject('navegador');
             }
-            
+
             getFacebookToken()
               .then(getFacebookTokenSuccess, getFacebookTokenError);
 
@@ -164,21 +164,25 @@
 
         //private
         function formatGoogleResponse(data) {
-            return {
-                'fullName': data.firstName + ' ' + data.lastName,
-                'googleId': data.uid,
-                'mail': data.mail,
-                'image': data.image
+            var obj = {
+                fullName: data.firstName + ' ' + data.lastName,
+                googleId: data.uid,
+                mail: data.mail,
+                image: data.image
             };
+            userService.mergeData(obj);
+            return obj;
         }
 
         function formatFacebookResponse(data) {
-            return {
-                'fullName': data.name,
-                'facebookId': data.id,
-                'mail': data.email,
-                'image': data.picture.data.url
+            var obj = {
+                fullName: data.name,
+                facebookId: data.id,
+                mail: data.email,
+                image: data.picture.data.url
             };
+            userService.mergeData(obj);
+            return obj;
         }
 
         function isWebBrowser() {
@@ -187,6 +191,13 @@
             } else {
                 console.log('login fake desde navegador');
                 //set fake user
+                userService.mergeData({
+                    fullName: 'Edu testing',
+                    facebookId: '',
+                    googleId: '',
+                    mail: 'edutesting@gmail.com',
+                    image: ''
+                });
                 return true;
             }
         }
