@@ -18,13 +18,48 @@
         }
 
         //scope methods
-        function doLogin() {
-
+        function doLogin(index) {
+            if (index === 1) {
+                doFacebookLogin();
+            } else {
+                doGoogleLogin();
+            }
         }
 
         //private methods
         function beforeEnter() {
             $ionicSideMenuDelegate.canDragContent(false);
+        }
+
+        function doFacebookLogin() {
+            rrssService.facebookLogin()
+              .then(facebookLoginSuccess, facebookLoginError);
+
+            function facebookLoginSuccess(data) {
+                successRrssLogin(data);
+            }
+
+            function facebookLoginError(err) {
+                console.log(err);
+            }
+        }
+
+        function doGoogleLogin() {
+            rrssService.googleLogin()
+              .then(googleLoginSuccess, googleLoginError);
+
+            function googleLoginSuccess(data) {
+                successRrssLogin(data);
+            }
+
+            function googleLoginError(err) {
+                console.log(err);
+            }
+        }
+
+        function successRrssLogin(data) {
+            alert(JSON.stringify(data));
+            $state.go('app.home');
         }
     }
 })();

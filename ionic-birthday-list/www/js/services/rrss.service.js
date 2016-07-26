@@ -6,6 +6,9 @@
 
     function rrssService($cordovaOauth, $q, $http, $ionicLoading){
 
+        var facebookAppId = '1735260246693734';
+        var googleClientId = '153461763037-qpcqe450jhnlmga2sknnig3df9mb34od.apps.googleusercontent.com';
+
         return {
             getFacebookToken: getFacebookToken,
             getGoogleToken: getGoogleToken,
@@ -17,7 +20,7 @@
 
         function getFacebookToken() {
             var d = $q.defer();
-            $cordovaOauth.facebook('RESOURCES().facebookAppId', ["email"], {"auth_type": "rerequest"})
+            $cordovaOauth.facebook(facebookAppId, ["email"], {"auth_type": "rerequest"})
               .then(getFacebookTokenSuccess, getFacebookTokenError);
 
               function getFacebookTokenSuccess(result) {
@@ -33,7 +36,7 @@
 
         function getGoogleToken() {
             var d = $q.defer();
-            $cordovaOauth.google('RESOURCES().googleClientId',
+            $cordovaOauth.google(googleClientId,
                 ["https://www.googleapis.com/auth/urlshortener", "https://www.googleapis.com/auth/userinfo.email",
                 "https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/plus.me"])
                 .then(getGoogleTokenSuccess, getGoogleTokenError);
