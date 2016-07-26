@@ -15,7 +15,8 @@
             getFacebookUserInfo: getFacebookUserInfo,
             getGoogleUserInfo: getGoogleUserInfo,
             facebookLogin: facebookLogin,
-            googleLogin: googleLogin
+            googleLogin: googleLogin,
+            fakeLogin: setFakeUser
         };
 
         function getFacebookToken() {
@@ -190,16 +191,19 @@
                 return false;
             } else {
                 console.log('login fake desde navegador');
-                //set fake user
-                userService.mergeData({
-                    fullName: 'Edu testing',
-                    facebookId: '',
-                    googleId: '',
-                    mail: 'edutesting@gmail.com',
-                    image: ''
-                });
+                setFakeUser();
                 return true;
             }
+        }
+
+        function setFakeUser() {
+            userService.mergeData({
+                fullName: 'Edu testing',
+                facebookId: '',
+                googleId: '',
+                mail: 'edutesting@gmail.com',
+                image: ''
+            });
         }
     }
 

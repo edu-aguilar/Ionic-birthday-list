@@ -21,8 +21,11 @@
         function doLogin(index) {
             if (index === 1) {
                 doFacebookLogin();
-            } else {
+            } else if (index === 2) {
                 doGoogleLogin();
+            } else {
+                rrssService.fakeLogin();
+                $state.go('app.home');
             }
         }
 
