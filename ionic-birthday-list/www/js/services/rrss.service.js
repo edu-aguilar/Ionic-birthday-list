@@ -107,6 +107,13 @@
         function facebookLogin() {
             var d = $q.defer();
 
+            if (!isWebBrowser()) {
+                getGoogleToken()
+                  .then(getGoogleTokenSuccess, getGoogleTokenError);
+            } else {
+                d.reject('navegador');
+            }
+            
             getFacebookToken()
               .then(getFacebookTokenSuccess, getFacebookTokenError);
 
@@ -130,8 +137,13 @@
 
         function googleLogin() {
             var d = $q.defer();
-            getGoogleToken()
-              .then(getGoogleTokenSuccess, getGoogleTokenError);
+
+            if (!isWebBrowser()) {
+                getGoogleToken()
+                  .then(getGoogleTokenSuccess, getGoogleTokenError);
+            } else {
+                d.reject('navegador');
+            }
 
             function getGoogleTokenSuccess(token) {
                 getGoogleUserInfo(token)
@@ -167,6 +179,16 @@
                 'mail': data.email,
                 'image': data.picture.data.url
             };
+        }
+
+        function isWebBrowser() {
+            if (window.cordova) {
+                return false;
+            } else {
+                console.log('login fake desde navegador');
+                //set fake user
+                return true;
+            }
         }
     }
 

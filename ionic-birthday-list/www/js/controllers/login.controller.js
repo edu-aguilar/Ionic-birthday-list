@@ -41,6 +41,9 @@
 
             function facebookLoginError(err) {
                 console.log(err);
+                if (err === 'navegador') {
+                    $state.go('app.home');
+                }
             }
         }
 
@@ -54,6 +57,9 @@
 
             function googleLoginError(err) {
                 console.log(err);
+                if (err === 'navegador') {
+                    $state.go('app.home');
+                }
             }
         }
 
