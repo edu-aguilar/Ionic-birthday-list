@@ -6,11 +6,13 @@
         .controller('LoginController', LoginController);
 
     /* @ngInject */
-    function LoginController($state, $ionicSideMenuDelegate, $scope, rrssService) {
+    function LoginController($state, $ionicSideMenuDelegate, $scope, rrssService, backButtonService) {
         var vm = this;
 
         activate();
         $scope.$on('$ionicView.beforeEnter', beforeEnter);
+        $scope.$on('$ionicView.afterEnter', backButtonService.closeApp);
+        $scope.$on('$stateChangeStart', backButtonService.deregisterAction);
 
         function activate() {
             vm.doLogin = doLogin;
