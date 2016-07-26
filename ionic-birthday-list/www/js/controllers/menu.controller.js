@@ -6,13 +6,14 @@
         .controller('MenuController', MenuController);
 
     /* @ngInject */
-    function MenuController(newDateService) {
+    function MenuController(newDateService, userService) {
         var vm = this;
 
         activate();
 
         function activate() {
             vm.showNewDateModal = showNewDateModal;
+            vm.user = userService.get();
         }
 
         function showNewDateModal() {

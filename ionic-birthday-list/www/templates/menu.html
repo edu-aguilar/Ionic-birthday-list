@@ -1,4 +1,4 @@
-<ion-side-menus enable-menu-with-back-views="true">
+<ion-side-menus enable-menu-with-back-views="true" id="menu">
 
     <ion-side-menu-content>
 
@@ -22,6 +22,15 @@
         </ion-header-bar>
 
         <ion-content has-bouncing="false">
+            <div class="button-bar">
+                <button class="disconnect-button button button-icon icon ion-log-out" menu-close></button>
+            </div>
+            <div class="user-info-container">
+                <div class="user-img-container">
+                    <img src="{{vm.user.image}}" alt="" />
+                </div>
+                <span class="user-name">{{vm.user.fullName}}</span>
+            </div>
 
         </ion-content>
 
