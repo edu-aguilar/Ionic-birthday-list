@@ -6,12 +6,17 @@
         .controller('HomeController', HomeController);
 
     /* @ngInject */
-    function HomeController($state, newDateService, $ionicSideMenuDelegate, $scope, userService) {
+    function HomeController($state, newDateService, $ionicSideMenuDelegate, $scope, userService, closeSessionService, backButtonService) {
         var vm = this;
 
-        console.log(userService.get());
         activate();
         $scope.$on('$ionicView.beforeEnter', beforeEnter);
+        $scope.$on('$ionicView.afterEnter', customAction);
+        $scope.$on('$stateChangeStart', backButtonService.deregisterAction);
+
+        function customAction() {
+            backButtonService.registerAction(closeSessionService.close, 101);
+        }
 
         function activate() {
 
