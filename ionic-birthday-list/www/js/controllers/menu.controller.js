@@ -6,7 +6,7 @@
         .controller('MenuController', MenuController);
 
     /* @ngInject */
-    function MenuController(newDateService, userService, $state) {
+    function MenuController(newDateService, userService, $state, closeSessionService) {
         var vm = this;
 
         activate();
@@ -14,16 +14,12 @@
         function activate() {
             vm.showNewDateModal = showNewDateModal;
             vm.user = userService.get();
-            vm.closeSession = closeSession;
+            vm.closeSession = closeSessionService.close;
         }
 
         function showNewDateModal() {
             newDateService.createNewDateModal();
         }
 
-        function closeSession() {
-            userService.reset();
-            $state.go('app.login');
-        }
     }
 })();
