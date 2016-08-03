@@ -5,6 +5,7 @@ var app = express();
 var bodyParser = require('body-parser'); //to POST operations.
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://dba:testing@ds029565.mlab.com:29565/ionic-birthday'); // connect to our database
+var User = require('./backend/models/user.js');
 var Beer = require('./backend/models/beer.js');
 
 // configure app to use bodyParser()
@@ -35,11 +36,18 @@ router.get('/', function(req, res) {
 // more routes for our API will happen here
 // on routes that end in /beers
 // ----------------------------------------------------
-router.route('/beers')
+router.route('/users')
+    .post(newUser)
+    .get(getAllUsers);
+
+router.route('/users/:userId')
+    .get(getUserById);
+
+router.route('/users/:userId/beers')
     .post(newBeer)
     .get(getAllBeers);
 
-router.route('/beers/:beerId')
+router.route('/users/:userId/beers/:beerId')
     .get(getBeerById)
     .put(updateBeer)
     .delete(deleteBeer);
@@ -57,18 +65,54 @@ console.log('Magic happens on port ' + port);
 
 
 //private methods
-
-function newBeer(req, res) {
-    var beer = new Beer();      // create a new instance of the beer model
-    beer.name = req.body.name;  // set the beers name (comes from the request)
+function newUser(req, res) {
+    var user = new User();      // create a new instance of the beer model
+    user.customId = req.body.userId;  // set the beers name (comes from the request)
 
     // save the beer and check for errors
-    beer.save(function(err) {
+    user.save(function(err) {
         if (err){
             res.send(err);
         }
-        res.json({ message: 'beer created!' });
+        res.json({ message: 'user created!' });
     });
+
+}
+
+function getAllUsers(req, res) {
+    User.find(function(err, users) {
+        if (err){
+            res.send(err);
+        }
+        res.json(users);
+    });
+}
+
+function getUserById(req, res) {
+    User.findByCustomId(req.params.userId, function(err, user) {
+        if (err){
+          res.send(err);
+        }
+        res.json(user);
+    });
+}
+
+function newBeer(req, res) {
+    console.log(req.db);
+    console.log(res);
+
+    // User.findByCustomId(req.params.userId, function(err, user) {
+    //     if (err){
+    //       res.send(err);
+    //     } else {
+    //         var beer = new Beer();      // create a new instance of the beer model
+    //         beer.name = req.body.name;
+    //         user[0].beers.push(beer);  // set the beers name (comes from the request)
+    //         console.log(user[0].beers);
+    //
+    //         //how to save noW????
+    //     }
+    // });
 
 }
 
