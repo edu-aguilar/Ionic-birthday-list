@@ -5,8 +5,8 @@ var app = express();
 var bodyParser = require('body-parser'); //to POST operations.
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://dba:testing@ds029565.mlab.com:29565/ionic-birthday'); // connect to our database
-var User = require('./backend/models/user.js');
 var Beer = require('./backend/models/beer.js');
+var User = require('./backend/models/user.js');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -89,7 +89,7 @@ function getAllUsers(req, res) {
 }
 
 function getUserById(req, res) {
-    User.findByCustomId(req.params.userId, function(err, user) {
+    User.findById(req.params.userId, function(err, user) {
         if (err){
           res.send(err);
         }
@@ -98,21 +98,25 @@ function getUserById(req, res) {
 }
 
 function newBeer(req, res) {
-    console.log(req.db);
-    console.log(res);
 
-    // User.findByCustomId(req.params.userId, function(err, user) {
-    //     if (err){
-    //       res.send(err);
-    //     } else {
-    //         var beer = new Beer();      // create a new instance of the beer model
-    //         beer.name = req.body.name;
-    //         user[0].beers.push(beer);  // set the beers name (comes from the request)
-    //         console.log(user[0].beers);
-    //
-    //         //how to save noW????
-    //     }
-    // });
+    User.findById(req.params.userId, function(err, user) {
+        if (err){
+          res.send(err);
+        } else {
+            var beer = new Beer();      // create a new instance of the beer model
+            beer.name = req.body.name;
+            console.log(user);
+            user.beers.push(beer);
+            console.log(user.beers);
+
+            user.save(function(err) {
+                if (err){
+                    res.send(err);
+                }
+                res.json({ message: 'user created!' });
+            });
+        }
+    });
 
 }
 
