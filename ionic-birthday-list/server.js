@@ -40,7 +40,9 @@ router.route('/beers')
     .get(getAllBeers);
 
 router.route('/beers/:beerId')
-    .get(getBeerById);
+    .get(getBeerById)
+    .put(updateBeer)
+    .delete(deleteBeer);
 
 // REGISTER OUR ROUTES
 // all of our routes will be prefixed with /api
@@ -87,4 +89,36 @@ function getBeerById(req, res) {
         }
         res.json(beer);
     });
+}
+
+function updateBeer(req, res) {
+
+    // use our beer model to find the beer we want
+    Beer.findById(req.params.beerId, function(err, beer) {
+
+        if (err){
+            res.send(err);
+        }
+
+        beer.name = req.body.name;  // update the beers info
+
+        // save the beer
+        beer.save(function(err) {
+            if (err){res.send(err);}
+            res.json({ message: 'beer updated!' });
+        });
+
+    });
+}
+
+function deleteBeer(req, res) {
+
+  Beer.remove({
+          _id: req.params.beerId
+      }, onBeerRemoved);
+
+      function onBeerRemoved(err, beer) {
+          if (err){res.send(err);}
+          res.json({ message: 'Successfully deleted' });
+      }
 }
