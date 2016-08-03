@@ -89,7 +89,7 @@ function getAllUsers(req, res) {
 }
 
 function getUserById(req, res) {
-    User.findById(req.params.userId, function(err, user) {
+    User.findOne({customId:req.params.userId}, function(err, user) {
         if (err){
           res.send(err);
         }
@@ -99,7 +99,7 @@ function getUserById(req, res) {
 
 function newBeer(req, res) {
 
-    User.findById(req.params.userId, function(err, user) {
+    User.findOne({customId: req.params.userId}, function(err, user) {
         if (err){
           res.send(err);
         } else {
@@ -113,7 +113,7 @@ function newBeer(req, res) {
                 if (err){
                     res.send(err);
                 }
-                res.json({ message: 'user created!' });
+                res.json({ message: 'beer created!' });
             });
         }
     });
@@ -121,26 +121,33 @@ function newBeer(req, res) {
 }
 
 function getAllBeers(req, res) {
-    Beer.find(function(err, beers) {
+
+    User.findOne({customId: req.params.userId}, function(err, user) {
         if (err){
-            res.send(err);
+          res.send(err);
+        } else {
+            res.json(user.beers);
         }
-        res.json(beers);
     });
 }
 
 function getBeerById(req, res) {
-    console.log(req.params);
-    Beer.findById(req.params.beerId, function(err, beer) {
+
+    User.findOne({customId:req.params.userId}, function(err, user) {
         if (err){
           res.send(err);
         }
-        res.json(beer);
+        for (var i = 0; i < user.beers.length; i++) {
+            console.log(user.beers[i]);
+            if (user.beers[i]._id == req.params.beerId) {
+                res.json(user.beers[i]);
+            }
+        }
     });
 }
 
 function updateBeer(req, res) {
-
+    //terminar
     // use our beer model to find the beer we want
     Beer.findById(req.params.beerId, function(err, beer) {
 
@@ -160,7 +167,7 @@ function updateBeer(req, res) {
 }
 
 function deleteBeer(req, res) {
-
+//terminar
   Beer.remove({
           _id: req.params.beerId
       }, onBeerRemoved);

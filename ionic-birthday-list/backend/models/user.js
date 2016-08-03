@@ -7,10 +7,4 @@ var UserSchema   = new Schema({
     beers: [BeerSchema]
 });
 
-UserSchema.statics.findByCustomId = function (customId, cb) {
-    this.find({
-        customId: customId
-    }, cb);
-};
-
 module.exports = mongoose.model('User', UserSchema);
