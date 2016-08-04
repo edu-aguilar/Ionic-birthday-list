@@ -7,6 +7,8 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://dba:testing@ds029565.mlab.com:29565/ionic-birthday'); // connect to our database
 var Beer = require('./backend/models/beer.js');
 var User = require('./backend/models/user.js');
+var userApi = require('./backend/controllers/user.controller.js');
+var beerApi = require('./backend/controllers/beer.controller.js');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -37,20 +39,20 @@ router.get('/', function(req, res) {
 // on routes that end in /beers
 // ----------------------------------------------------
 router.route('/users')
-    .post(newUser)
-    .get(getAllUsers);
+    .post(userApi.newUser)
+    .get(userApi.getAllUsers);
 
 router.route('/users/:userId')
-    .get(getUserById);
+    .get(userApi.getUserByCustomId);
 
 router.route('/users/:userId/beers')
-    .post(newBeer)
-    .get(getAllBeers);
+    .post(beerApi.newBeer)
+    .get(beerApi.getAllBeers);
 
 router.route('/users/:userId/beers/:beerId')
-    .get(getBeerById)
-    .put(updateBeer)
-    .delete(deleteBeer);
+    .get(beerApi.getBeerById)
+    .put(beerApi.updateBeer)
+    .delete(beerApi.deleteBeer);
 
 // REGISTER OUR ROUTES
 // all of our routes will be prefixed with /api
@@ -62,118 +64,3 @@ app.use('/api', router);
 // =============================================================================
 app.listen(port);
 console.log('Magic happens on port ' + port);
-
-
-//private methods
-function newUser(req, res) {
-    var user = new User();      // create a new instance of the beer model
-    user.customId = req.body.userId;  // set the beers name (comes from the request)
-
-    // save the beer and check for errors
-    user.save(function(err) {
-        if (err){
-            res.send(err);
-        }
-        res.json({ message: 'user created!' });
-    });
-
-}
-
-function getAllUsers(req, res) {
-    User.find(function(err, users) {
-        if (err){
-            res.send(err);
-        }
-        res.json(users);
-    });
-}
-
-function getUserById(req, res) {
-    User.findOne({customId:req.params.userId}, function(err, user) {
-        if (err){
-          res.send(err);
-        }
-        res.json(user);
-    });
-}
-
-function newBeer(req, res) {
-
-    User.findOne({customId: req.params.userId}, function(err, user) {
-        if (err){
-          res.send(err);
-        } else {
-            var beer = new Beer();      // create a new instance of the beer model
-            beer.name = req.body.name;
-            console.log(user);
-            user.beers.push(beer);
-            console.log(user.beers);
-
-            user.save(function(err) {
-                if (err){
-                    res.send(err);
-                }
-                res.json({ message: 'beer created!' });
-            });
-        }
-    });
-
-}
-
-function getAllBeers(req, res) {
-
-    User.findOne({customId: req.params.userId}, function(err, user) {
-        if (err){
-          res.send(err);
-        } else {
-            res.json(user.beers);
-        }
-    });
-}
-
-function getBeerById(req, res) {
-
-    User.findOne({customId:req.params.userId}, function(err, user) {
-        if (err){
-          res.send(err);
-        }
-        for (var i = 0; i < user.beers.length; i++) {
-            console.log(user.beers[i]);
-            if (user.beers[i]._id == req.params.beerId) {
-                res.json(user.beers[i]);
-            }
-        }
-    });
-}
-
-function updateBeer(req, res) {
-    //terminar
-    // use our beer model to find the beer we want
-    Beer.findById(req.params.beerId, function(err, beer) {
-
-        if (err){
-            res.send(err);
-        }
-
-        beer.name = req.body.name;  // update the beers info
-
-        // save the beer
-        beer.save(function(err) {
-            if (err){res.send(err);}
-            res.json({ message: 'beer updated!' });
-        });
-
-    });
-}
-
-function deleteBeer(req, res) {
-//terminar
-  Beer.remove({
-          _id: req.params.beerId
-      }, onBeerRemoved);
-
-      function onBeerRemoved(err, beer) {
-          if (err){res.send(err);}
-          res.json({ message: 'Successfully deleted' });
-      }
-}
