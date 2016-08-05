@@ -4,7 +4,12 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser'); //to POST operations.
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://dba:testing@ds029565.mlab.com:29565/ionic-birthday'); // connect to our database
+var morgan = require('morgan');
+var jwt = require('jsonwebtoken');
+var config = require('./backend/config.js');
+var common = require('./backend/common.js');
+
+mongoose.connect(config.database); // connect to our database
 var Beer = require('./backend/models/beer.js');
 var User = require('./backend/models/user.js');
 var userApi = require('./backend/controllers/user.controller.js');
@@ -14,21 +19,15 @@ var beerApi = require('./backend/controllers/beer.controller.js');
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(morgan('dev'));
+app.set('secret', config.secret);
 
 var port = process.env.PORT || 1990;        // set our port
-
 
 
 // ROUTES FOR OUR API
 // =============================================================================
 var router = express.Router();              // get an instance of the express Router
-
-// middleware to use for all requests
-router.use(function(req, res, next) {
-    // do logging
-    console.log('Something is happening | middleware');
-    next(); // make sure we go to the next routes and don't stop here
-});
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
@@ -38,6 +37,13 @@ router.get('/', function(req, res) {
 // more routes for our API will happen here
 // on routes that end in /beers
 // ----------------------------------------------------
+// ----------------------------------------------------
+router.route('/authenticate')
+    .post(common.authenticate);
+
+// middleware to use for all requests
+router.use(common.middleware);
+
 router.route('/users')
     .post(userApi.newUser)
     .get(userApi.getAllUsers);
