@@ -5,11 +5,10 @@ exports.getAllUsers = getAllUsers;
 exports.getUserByCustomId = getUserByCustomId;
 
 
-function newUser(req, res) {
-    var user = new User();      // create a new instance of the beer model
-    user.customId = req.body.userId;  // set the beers name (comes from the request)
+function newUser(req, res, next) {
+    var user = new User();
+    user.customId = req.body.userId;
 
-    // save the beer and check for errors
     user.save(function(err) {
         if (err){
             res.send(err);

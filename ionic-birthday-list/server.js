@@ -10,10 +10,10 @@ var config = require('./backend/config.js');
 var common = require('./backend/common.js');
 
 mongoose.connect(config.database); // connect to our database
-var Beer = require('./backend/models/beer.js');
+var Contact = require('./backend/models/contact.js');
 var User = require('./backend/models/user.js');
 var userApi = require('./backend/controllers/user.controller.js');
-var beerApi = require('./backend/controllers/beer.controller.js');
+var contactApi = require('./backend/controllers/contact.controller.js');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -35,9 +35,12 @@ router.get('/', function(req, res) {
 });
 
 // more routes for our API will happen here
-// on routes that end in /beers
+// on routes that end in /contacts
 // ----------------------------------------------------
 // ----------------------------------------------------
+router.route('/users')
+    .post(userApi.newUser);
+
 router.route('/authenticate')
     .post(common.authenticate);
 
@@ -45,20 +48,19 @@ router.route('/authenticate')
 router.use(common.middleware);
 
 router.route('/users')
-    .post(userApi.newUser)
     .get(userApi.getAllUsers);
 
 router.route('/users/:userId')
     .get(userApi.getUserByCustomId);
 
-router.route('/users/:userId/beers')
-    .post(beerApi.newBeer)
-    .get(beerApi.getAllBeers);
+router.route('/users/:userId/contacts')
+    .post(contactApi.newContact)
+    .get(contactApi.getAllContacts);
 
-router.route('/users/:userId/beers/:beerId')
-    .get(beerApi.getBeerById)
-    .put(beerApi.updateBeer)
-    .delete(beerApi.deleteBeer);
+router.route('/users/:userId/contacts/:contactId')
+    .get(contactApi.getContactById)
+    .put(contactApi.updateContact)
+    .delete(contactApi.deleteContact);
 
 // REGISTER OUR ROUTES
 // all of our routes will be prefixed with /api

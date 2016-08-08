@@ -1,8 +1,8 @@
 var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 
-var BeerSchema   = new Schema({
+var ContactSchema   = new Schema({
     name: { type: String, required: true },
 });
 
-module.exports = mongoose.model('Beer', BeerSchema);
+module.exports = mongoose.model('Contact', ContactSchema);

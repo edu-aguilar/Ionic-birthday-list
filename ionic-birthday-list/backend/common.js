@@ -1,6 +1,6 @@
 var jwt = require('jsonwebtoken');
 var config = require('./config.js');
-var Beer = require('./models/beer.js');
+var Beer = require('./models/contact.js');
 var User = require('./models/user.js');
 
 module.exports = {
