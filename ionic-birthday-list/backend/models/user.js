@@ -4,6 +4,7 @@ var ContactSchema   = require('mongoose').model('Contact').schema;
 
 var UserSchema   = new Schema({
     customId: { type: String, required: true, unique: true },
+    image: { type: String },
     contacts: [ContactSchema]
 });
 
