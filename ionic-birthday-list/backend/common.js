@@ -39,6 +39,8 @@ function middleware (req, res, next) {
 
 function authenticate(req, res) {
 
+    console.log(req.body);
+    console.log(req.body.userId);
     User.findOne({
         customId: req.body.userId
     }, function(err, user) {
@@ -47,7 +49,7 @@ function authenticate(req, res) {
 
       if (!user) {
           //crear usuario maybe?
-          res.json({ success: false, message: 'Authentication failed. User not found.' });
+          res.status(404).json({ success: false, message: 'Authentication failed. User not found.' });
       } else {
 
           // if user is found and password is right

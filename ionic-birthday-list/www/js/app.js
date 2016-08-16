@@ -27,7 +27,12 @@ function runApp($ionicPlatform) {
     }
 }
 
-function ionicConfig($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+function ionicConfig($stateProvider, $urlRouterProvider, $ionicConfigProvider, $httpProvider) {
+    /*TO AVOID CORS PROBLEMS - CHECK IT LATER*/
+    $httpProvider.defaults.headers.common = {};
+    $httpProvider.defaults.headers.post = {};
+    $httpProvider.defaults.headers.put = {};
+    $httpProvider.defaults.headers.patch = {};
     $ionicConfigProvider.scrolling.jsScrolling(false);
     $stateProvider
         .state('app', {

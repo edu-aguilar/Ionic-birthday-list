@@ -6,7 +6,7 @@
         .controller('LoginController', LoginController);
 
     /* @ngInject */
-    function LoginController($state, $ionicSideMenuDelegate, $scope, rrssService, backButtonService) {
+    function LoginController($state, $ionicSideMenuDelegate, $scope, rrssService, backButtonService, sessionService) {
         var vm = this;
 
         activate();
@@ -27,7 +27,10 @@
                 doGoogleLogin();
             } else {
                 rrssService.fakeLogin();
-                $state.go('app.home');
+                sessionService.authenticate({
+                    fullName: 'Edu testing',
+                    facebookId: '1',
+                    mail: 'edutesting@gmail.com'}).then(loginSuccess, loginError);
             }
         }
 
@@ -70,7 +73,18 @@
 
         function successRrssLogin(data) {
             alert(JSON.stringify(data));
-            $state.go('app.home');
+            //API rest authentication method.
+            sessionService.authenticate(data).then(loginSuccess, loginError);
+        }
+
+        function loginSuccess(res) {
+            console.log('fine bra: ' + res);
+            //set token
+        }
+
+        function loginError(error) {
+            console.log('login ERRORASO: ' + error);
+            //error, create user probably
         }
     }
 })();
