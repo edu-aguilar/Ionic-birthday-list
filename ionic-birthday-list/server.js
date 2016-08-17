@@ -17,7 +17,7 @@ var contactApi = require('./backend/controllers/contact.controller.js');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.set('secret', config.secret);

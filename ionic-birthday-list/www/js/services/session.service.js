@@ -20,13 +20,8 @@
                 userId: userData.facebookId || userData.googleId
             };
 
-            //$http.post('http://localhost:1990/api/authenticate', _data).then(authenticateSuccess, authenticateError);
-            $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
-            $http({
-            url: 'http://localhost:1990/api/authenticate',
-            method: "POST",
-            data: { userId : 1 }
-            }).then(authenticateSuccess, authenticateError);
+            $http.post('http://localhost:1990/api/authenticate', _data)
+                  .then(authenticateSuccess, authenticateError);
 
             function authenticateSuccess(res) {
                 d.resolve(res.data);

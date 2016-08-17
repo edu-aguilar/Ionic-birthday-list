@@ -7,7 +7,8 @@ angular.module('ionicBirthdayList', ['ionic', 'controllers', 'services', 'compon
         .run(runApp)
         .config(ionicConfig);
 
-function runApp($ionicPlatform) {
+function runApp($ionicPlatform, $http, $httpParamSerializerJQLike) {
+    $http.defaults.transformRequest.unshift($httpParamSerializerJQLike);
     $ionicPlatform.ready(onPlatformReady);
 
     function onPlatformReady() {
@@ -33,6 +34,7 @@ function ionicConfig($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
     $httpProvider.defaults.headers.post = {};
     $httpProvider.defaults.headers.put = {};
     $httpProvider.defaults.headers.patch = {};
+    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
     $ionicConfigProvider.scrolling.jsScrolling(false);
     $stateProvider
         .state('app', {
